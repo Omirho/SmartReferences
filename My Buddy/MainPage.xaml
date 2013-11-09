@@ -49,45 +49,45 @@
                 <Grid>
                     <StackPanel Margin="0,4,16,0" Orientation="Vertical" VerticalAlignment="Top">
                         <StackPanel HorizontalAlignment="Left" Orientation="Horizontal">
-                            <Grid Background="LimeGreen" Width="120" Margin="12,0,0,0">
-                                <TextBlock TextAlignment="Center" Text="quadratic solver" FontSize="26" TextWrapping="Wrap" Height="120" Width="120"/>
-                                <Button Click="Button_Click_2" Height="120" Width="120" Style="{StaticResource ButtonStyle1}"/>
+                            <Grid Background="LimeGreen" Width="120" Margin="12,0,0,0" DataContext="{Binding LastUsed1[0]}">
+                                <TextBlock Name="TB1" TextAlignment="Center" Text="{Binding Name}" FontSize="26" TextWrapping="Wrap" Height="120" Width="120"/>
+                                <Button Click="Button_Click_1" Height="120" Width="120" Style="{StaticResource ButtonStyle1}"/>
                             </Grid>
                             <!--<Border Background="#FFFFC700" Height="120" Width="120" Margin="12,0,0,0"/>-->
-                            <Grid Background="Red" Width="252" Margin="12,0,0,0">
-                                <TextBlock TextAlignment="Center" Text="linear system in two variables solver" FontSize="26" TextWrapping="Wrap" Height="120" Width="252"/>
+                            <Grid Background="Red" Width="252" Margin="12,0,0,0" DataContext="{Binding LastUsed1[1]}">
+                                <TextBlock Name="TB2" TextAlignment="Center" Text="{Binding Name}" FontSize="26" TextWrapping="Wrap" Height="120" Width="252"/>
                                 <Button Click="Button_Click_2" Height="120" Width="252" Style="{StaticResource ButtonStyle1}"/>
                             </Grid>
                             <!--<Border Background="#FFFFC700" Height="120" Width="252" Margin="12,0,0,0"/>-->
                         </StackPanel>
                         <StackPanel HorizontalAlignment="Left" Orientation="Horizontal" Margin="0,12,0,0">
-                            <Grid Background="DeepPink" Width="120" Margin="12,0,0,0">
-                                <TextBlock TextAlignment="Center" Text="quadratic solver" FontSize="26" TextWrapping="Wrap" Height="252" Width="120"/>
-                                <Button Click="Button_Click_2" Height="252" Width="120" Style="{StaticResource ButtonStyle1}"/>
+                            <Grid Background="DeepPink" Width="120" Margin="12,0,0,0" DataContext="{Binding LastUsed1[2]}">
+                                <TextBlock Name="TB3" TextAlignment="Center" Text="{Binding Name}" FontSize="26" TextWrapping="Wrap" Height="252" Width="120"/>
+                                <Button Click="Button_Click_3" Height="252" Width="120" Style="{StaticResource ButtonStyle1}"/>
                             </Grid>
                             <!--<Border Background="#FFFFC700" Height="252" Width="120" Margin="12,0,0,0"/>-->
                             <StackPanel HorizontalAlignment="Left" Orientation="Vertical" Margin="0,0,0,0">
                                 <StackPanel HorizontalAlignment="Left" Orientation="Horizontal" Margin="0,0,0,0">
-                                    <Grid Background="LightSeaGreen" Width="120" Margin="12,0,0,0">
-                                        <TextBlock TextAlignment="Center" Text="quadratic solver" FontSize="26" TextWrapping="Wrap" Height="120" Width="120"/>
-                                        <Button Click="Button_Click_2" Height="120" Width="120" Style="{StaticResource ButtonStyle1}"/>
+                                    <Grid Background="LightSeaGreen" Width="120" Margin="12,0,0,0" DataContext="{Binding LastUsed1[3]}">
+                                        <TextBlock Name="TB4" TextAlignment="Center" Text="{Binding Name}" FontSize="26" TextWrapping="Wrap" Height="120" Width="120"/>
+                                        <Button Click="Button_Click_4" Height="120" Width="120" Style="{StaticResource ButtonStyle1}"/>
                                     </Grid>
                                     <!--<Border Background="#FFFFC700" Height="120" Width="120" Margin="12,0,0,0"/>-->
                                     <Grid Background="Purple" Width="120" Margin="12,0,0,0">
-                                        <TextBlock TextAlignment="Center" Text="quadratic solver" FontSize="26" TextWrapping="Wrap" Height="120" Width="120"/>
-                                        <Button Click="Button_Click_2" Height="120" Width="120" Style="{StaticResource ButtonStyle1}"/>
+                                        <TextBlock Name="TB5" TextAlignment="Center" Text="" FontSize="26" TextWrapping="Wrap" Height="120" Width="120"/>
+                                        <Button Click="Button_Click_5" Height="120" Width="120" Style="{StaticResource ButtonStyle1}"/>
                                     </Grid>
                                     <!--<Border Background="#FFFFC700" Height="120" Width="120" Margin="12,0,0,0"/>-->
                                 </StackPanel>
                                 <StackPanel HorizontalAlignment="Left" Orientation="Horizontal" Margin="0,12,0,0">
                                     <Grid Background="OrangeRed" Width="120" Margin="12,0,0,0">
-                                        <TextBlock TextAlignment="Center" Text="quadratic solver" FontSize="26" TextWrapping="Wrap" Height="120" Width="120"/>
-                                        <Button Click="Button_Click_2" Height="120" Width="120" Style="{StaticResource ButtonStyle1}"/>
+                                        <TextBlock Name="TB6" TextAlignment="Center" Text="" FontSize="26" TextWrapping="Wrap" Height="120" Width="120"/>
+                                        <Button Click="Button_Click_6" Height="120" Width="120" Style="{StaticResource ButtonStyle1}"/>
                                     </Grid>
                                     <!--<Border Background="#FFFFC700" Height="120" Width="120" Margin="12,0,0,0"/>-->
                                     <Grid Background="SaddleBrown" Width="120" Margin="12,0,0,0">
-                                        <TextBlock TextAlignment="Center" Text="quadratic solver" FontSize="26" TextWrapping="Wrap" Height="120" Width="120"/>
-                                        <Button Click="Button_Click_2" Height="120" Width="120" Style="{StaticResource ButtonStyle1}"/>
+                                        <TextBlock Name="TB7" TextAlignment="Center" Text="" FontSize="26" TextWrapping="Wrap" Height="120" Width="120"/>
+                                        <Button Click="Button_Click_7" Height="120" Width="120" Style="{StaticResource ButtonStyle1}"/>
                                     </Grid>
                                     <!--<Border Background="#FFFFC700" Height="120" Width="120" Margin="12,0,0,0"/>-->
                                 </StackPanel>
@@ -100,7 +100,7 @@
             <!--Panorama item two-->
             <phone:PanoramaItem>
                 <!--Double line list with image placeholder and text wrapping using a floating header that scrolls with the content-->
-                <phone:LongListSelector x:Name="lls" SelectionChanged="LongListSelector_SelectionChanged" Margin="0,-38,-22,2" ItemsSource="{Binding LastUsed1}">
+                <phone:LongListSelector x:Name="lls" SelectionChanged="LongListSelector_SelectionChanged" Margin="0,-38,-22,2" ItemsSource="{Binding Items}">
                     <phone:LongListSelector.ListHeaderTemplate>
                         <DataTemplate>
                             <Grid Margin="12,0,0,38">

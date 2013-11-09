@@ -32,11 +32,116 @@ namespace My_Buddy
             }
         }
 
+        private void Button_Click_1(object sender, RoutedEventArgs e)
+        {
+            ItemViewModel itm = App.ViewModel.LastUsed1[0];
+            itm.setused();
+            if (App.ViewModel.LastUsed1.Contains(itm))
+                App.ViewModel.LastUsed1.Remove(itm);
+            while (App.ViewModel.LastUsed1.Count > 7)
+                App.ViewModel.LastUsed1.RemoveAt(App.ViewModel.LastUsed1.Count - 1);
+            App.ViewModel.LastUsed1.Insert(0, itm);
+            if (itm.isImage == false)
+            {
+                itm.LastUsed = DateTime.Now;
+                NavigationService.Navigate(new Uri(itm.Path, UriKind.Relative));
+            }
+        }
+
         private void Button_Click_2(object sender, RoutedEventArgs e)
         {
-            PhoneApplicationService.Current.State["img"] = "swap";
-            NavigationService.Navigate(new Uri("/Image.xaml", UriKind.Relative));
-            //MessageBox.Show("yo");
+            ItemViewModel itm = App.ViewModel.LastUsed1[1];
+            itm.setused();
+            if (App.ViewModel.LastUsed1.Contains(itm))
+                App.ViewModel.LastUsed1.Remove(itm);
+            while (App.ViewModel.LastUsed1.Count > 7)
+                App.ViewModel.LastUsed1.RemoveAt(App.ViewModel.LastUsed1.Count - 1);
+            App.ViewModel.LastUsed1.Insert(0, itm);
+            if (itm.isImage == false)
+            {
+                itm.LastUsed = DateTime.Now;
+                NavigationService.Navigate(new Uri(itm.Path, UriKind.Relative));
+            }
+        }
+
+        private void Button_Click_3(object sender, RoutedEventArgs e)
+        {
+            ItemViewModel itm = App.ViewModel.LastUsed1[2];
+            itm.setused();
+            if (App.ViewModel.LastUsed1.Contains(itm))
+                App.ViewModel.LastUsed1.Remove(itm);
+            while (App.ViewModel.LastUsed1.Count > 7)
+                App.ViewModel.LastUsed1.RemoveAt(App.ViewModel.LastUsed1.Count - 1);
+            App.ViewModel.LastUsed1.Insert(0, itm);
+            if (itm.isImage == false)
+            {
+                itm.LastUsed = DateTime.Now;
+                NavigationService.Navigate(new Uri(itm.Path, UriKind.Relative));
+            }
+        }
+
+        private void Button_Click_4(object sender, RoutedEventArgs e)
+        {
+            ItemViewModel itm = App.ViewModel.LastUsed1[3];
+            itm.setused();
+            if (App.ViewModel.LastUsed1.Contains(itm))
+                App.ViewModel.LastUsed1.Remove(itm);
+            while (App.ViewModel.LastUsed1.Count > 7)
+                App.ViewModel.LastUsed1.RemoveAt(App.ViewModel.LastUsed1.Count - 1);
+            App.ViewModel.LastUsed1.Insert(0, itm);
+            if (itm.isImage == false)
+            {
+                itm.LastUsed = DateTime.Now;
+                NavigationService.Navigate(new Uri(itm.Path, UriKind.Relative));
+            }
+        }
+
+        private void Button_Click_5(object sender, RoutedEventArgs e)
+        {
+            ItemViewModel itm = App.ViewModel.LastUsed1[4];
+            itm.setused();
+            if (App.ViewModel.LastUsed1.Contains(itm))
+                App.ViewModel.LastUsed1.Remove(itm);
+            while (App.ViewModel.LastUsed1.Count > 7)
+                App.ViewModel.LastUsed1.RemoveAt(App.ViewModel.LastUsed1.Count - 1);
+            App.ViewModel.LastUsed1.Insert(0, itm);
+            if (itm.isImage == false)
+            {
+                itm.LastUsed = DateTime.Now;
+                NavigationService.Navigate(new Uri(itm.Path, UriKind.Relative));
+            }
+        }
+
+        private void Button_Click_6(object sender, RoutedEventArgs e)
+        {
+            ItemViewModel itm = App.ViewModel.LastUsed1[5];
+            itm.setused();
+            if (App.ViewModel.LastUsed1.Contains(itm))
+                App.ViewModel.LastUsed1.Remove(itm);
+            while (App.ViewModel.LastUsed1.Count > 7)
+                App.ViewModel.LastUsed1.RemoveAt(App.ViewModel.LastUsed1.Count - 1);
+            App.ViewModel.LastUsed1.Insert(0, itm);
+            if (itm.isImage == false)
+            {
+                itm.LastUsed = DateTime.Now;
+                NavigationService.Navigate(new Uri(itm.Path, UriKind.Relative));
+            }
+        }
+
+        private void Button_Click_7(object sender, RoutedEventArgs e)
+        {
+            ItemViewModel itm = App.ViewModel.LastUsed1[6];
+            itm.setused();
+            if (App.ViewModel.LastUsed1.Contains(itm))
+                App.ViewModel.LastUsed1.Remove(itm);
+            while (App.ViewModel.LastUsed1.Count > 7)
+                App.ViewModel.LastUsed1.RemoveAt(App.ViewModel.LastUsed1.Count - 1);
+            App.ViewModel.LastUsed1.Insert(0, itm);
+            if (itm.isImage == false)
+            {
+                itm.LastUsed = DateTime.Now;
+                NavigationService.Navigate(new Uri(itm.Path, UriKind.Relative));
+            }
         }
 
         private void add(object sender, EventArgs e)
@@ -64,5 +169,6 @@ namespace My_Buddy
             }
             lls.SelectedItem = null;
         }
+
     }
 }
