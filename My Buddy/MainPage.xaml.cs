@@ -30,16 +30,16 @@ namespace My_Buddy
             }
         }
 
-        private void Button_Click_1(object sender, RoutedEventArgs e)
-        {
-            App.ViewModel.test();
-        }
-
         private void Button_Click_2(object sender, RoutedEventArgs e)
         {
             PhoneApplicationService.Current.State["img"] = "swap";
             NavigationService.Navigate(new Uri("/Image.xaml", UriKind.Relative));
             //MessageBox.Show("yo");
+        }
+
+        private void add(object sender, EventArgs e)
+        {
+            NavigationService.Navigate(new Uri("/Add.xaml", UriKind.Relative));
         }
     }
 }

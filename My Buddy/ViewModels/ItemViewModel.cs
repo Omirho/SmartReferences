@@ -22,7 +22,9 @@ namespace My_Buddy.ViewModels
             LastUsed = DateTime.Now;
         }
 
+        public string Path { get; set; }
         public string Name { get; set; }
+        public bool isImage { get; set; }
         public string Description { get; set; }
         public DateTime LastUsed { get; set; }
         public bool isFavorite { get; set; }

@@ -43,9 +43,9 @@ namespace My_Buddy.ViewModels
             this.IsDataLoaded = true;
         }
 
-        public void test()
+        public void test(ItemViewModel i)
         {
-            this.Items.Add(new ItemViewModel("3 variable solver","solves a linear system in three variables"));
+            this.Items.Add(i);
         }
     }
 }
