@@ -1,7 +1,10 @@
 ﻿using System;
 using System.Collections.ObjectModel;
+using System.Collections.Generic;
 using System.ComponentModel;
 using My_Buddy.Resources;
+using System.Linq;
+using System.IO.IsolatedStorage;
 
 namespace My_Buddy.ViewModels
 {
@@ -12,7 +15,9 @@ namespace My_Buddy.ViewModels
             this.Items = new ObservableCollection<ItemViewModel>();
         }
 
-        public ObservableCollection<ItemViewModel> Items { get; private set; }
+        public ObservableCollection<ItemViewModel> Items {get; set; } 
+        public ObservableCollection<ItemViewModel> LastUsed1 { get; set; }
+        public static readonly IsolatedStorageSettings appSettings = IsolatedStorageSettings.ApplicationSettings;
 
         public bool IsDataLoaded
         {
@@ -22,9 +27,29 @@ namespace My_Buddy.ViewModels
 
         public void LoadData()
         {
+            if (appSettings.Contains("All"))
+            {
+                Items = (ObservableCollection<ItemViewModel>)appSettings["All"];
+            }
+            else
+            {
+                Items.Add(new ItemViewModel("Chris Sells", "Chris Sells Live"));
+                System.Threading.Thread.Sleep(1000);
+                Items.Add(new ItemViewModel("Luka Abrus", "The Road to Redmond"));
+                System.Threading.Thread.Sleep(1000);
+                Items.Add(new ItemViewModel() { Path = "/QuadraticEquationSolver.xaml", Name = "Quadratic Equation Solver", Description = "Solves equation", isImage = false });
+                System.Threading.Thread.Sleep(1000);
+                Items.Add(new ItemViewModel("Jim Hance", "The Best of Jim Hance"));
+                
+                //Items = new ObservableCollection<ItemViewModel>(Items.OrderByDescending(i => i.LastUsed));
+                appSettings["All"] = Items;
+                appSettings.Save();
+            }
+            //LastUsed1 = new ObservableCollection<ItemViewModel>( Items);
+            LastUsed1 = new ObservableCollection<ItemViewModel>(Items.OrderByDescending(i => i.LastUsed));
             // Sample data; replace with real data
-            this.Items.Add(new ItemViewModel("quadratic solver", "gives roots of a quadratic equation"));// { LineOne = "quadratic solver", LineTwo = "gives roots of a quadratic equation", LineThree = "Facilisi faucibus habitant inceptos interdum lobortis nascetur pharetra placerat pulvinar sagittis senectus sociosqu" });
-            this.Items.Add(new ItemViewModel("2 variable solver", "solves a linear system in two variables"));// { LineOne = "2 variable solver", LineTwo = "solves a linear system in two variables", LineThree = "Suscipit torquent ultrices vehicula volutpat maecenas praesent accumsan bibendum dictumst eleifend facilisi faucibus" });
+            //this.Items.Add(new ItemViewModel("quadratic solver", "gives roots of a quadratic equation"));// { LineOne = "quadratic solver", LineTwo = "gives roots of a quadratic equation", LineThree = "Facilisi faucibus habitant inceptos interdum lobortis nascetur pharetra placerat pulvinar sagittis senectus sociosqu" });
+            //this.Items.Add(new ItemViewModel("2 variable solver", "solves a linear system in two variables"));// { LineOne = "2 variable solver", LineTwo = "solves a linear system in two variables", LineThree = "Suscipit torquent ultrices vehicula volutpat maecenas praesent accumsan bibendum dictumst eleifend facilisi faucibus" });
             /*this.Items.Add(new ItemViewModel() { LineOne = "3 variable solver", LineTwo = "solves a linear system in three variables", LineThree = "Habitant inceptos interdum lobortis nascetur pharetra placerat pulvinar sagittis senectus sociosqu suscipit torquent" });
             this.Items.Add(new ItemViewModel() { LineOne = "runtime four", LineTwo = "Nascetur pharetra placerat pulvinar", LineThree = "Ultrices vehicula volutpat maecenas praesent accumsan bibendum dictumst eleifend facilisi faucibus habitant inceptos" });
             this.Items.Add(new ItemViewModel() { LineOne = "runtime five", LineTwo = "Maecenas praesent accumsan bibendum", LineThree = "Maecenas praesent accumsan bibendum dictumst eleifend facilisi faucibus habitant inceptos interdum lobortis nascetur" });
@@ -43,9 +68,14 @@ namespace My_Buddy.ViewModels
             this.IsDataLoaded = true;
         }
 
-        public void test(ItemViewModel i)
+        public void AddData(ItemViewModel item)
         {
-            this.Items.Add(i);
+
+            Items.Add(item);
+            appSettings["All"] = Items;
+            appSettings.Save();
+            LastUsed1 = new ObservableCollection<ItemViewModel>(LastUsed1.OrderByDescending(i => i.LastUsed));
+            LastUsed1.Insert(0, item);
         }
     }
 }

@@ -32,39 +32,61 @@ namespace My_Buddy
 
         private void newi(object sender, RoutedEventArgs e)
         {
-            p2.Show();
+            if (name.Text.Length == 0 || description.Text.Length == 0)
+                MessageBox.Show("Please enter valid details");
+            else
+            {
+                p2.Show();
+                NavigationService.GoBack();
+            }
         }
 
         private void existing(object sender, RoutedEventArgs e)
         {
-            p1.Show();
+            if (name.Text.Length == 0 || description.Text.Length == 0)
+                MessageBox.Show("Please enter valid details");
+            else
+            {
+                p1.Show();
+                NavigationService.GoBack();
+            }
         }
 
         void p1_Completed(object sender, PhotoResult e)
         {
             item.Path = e.OriginalFileName;
-            var input = new InputPrompt();
-            input.Completed += new EventHandler<PopUpEventArgs<string,PopUpResult> > (input_Completed);
-            input.Title = "Add Name";
-            input.Message = "";
-            input.Show();
+            item.Name = name.Text;
+            item.Description = description.Text;
+            item.isImage = true;
+            App.ViewModel.AddData(item);
+            //NavigationService.GoBack();
+            //var input = new InputPrompt();
+            //input.Completed += new EventHandler<PopUpEventArgs<string,PopUpResult> > (input_Completed);
+            //input.Title = "Add Name";
+            //input.Message = "";
+            //input.Show();
         }
 
         void p2_Completed(object sender, PhotoResult e)
         {
             item.Path = e.OriginalFileName;
-            var input = new InputPrompt();
-            input.Completed += new EventHandler<PopUpEventArgs<string, PopUpResult>>(input_Completed);
-            input.Title = "Add Name";
-            input.Message = "";
-            input.Show();
+            item.Name = name.Text;
+            item.Description = description.Text;
+            item.isImage = true;
+            App.ViewModel.AddData(item);
+            //NavigationService.GoBack();
+            //var input = new InputPrompt();
+            //input.Completed += new EventHandler<PopUpEventArgs<string, PopUpResult>>(input_Completed);
+            //input.Title = "Add Name";
+            //input.Message = "";
+            //input.Show();
         }
 
-        void input_Completed(object sender, PopUpEventArgs<string, PopUpResult> e)
+        /*void input_Completed(object sender, PopUpEventArgs<string, PopUpResult> e)
         {
             item.Name = e.Result;
             App.ViewModel.test(item);
             NavigationService.GoBack();
-        }
+        }*/
     }
 }

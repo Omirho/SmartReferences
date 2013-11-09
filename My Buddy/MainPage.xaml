@@ -76,7 +76,7 @@
             <!--Panorama item two-->
             <phone:PanoramaItem>
                 <!--Double line list with image placeholder and text wrapping using a floating header that scrolls with the content-->
-                <phone:LongListSelector Margin="0,-38,-22,2" ItemsSource="{Binding Items}">
+                <phone:LongListSelector Name="lls" SelectionChanged="LongListSelector_SelectionChanged" Margin="0,-38,-22,2" ItemsSource="{Binding LastUsed1}">
                     <phone:LongListSelector.ListHeaderTemplate>
                         <DataTemplate>
                             <Grid Margin="12,0,0,38">
