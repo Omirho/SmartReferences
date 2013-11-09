@@ -40,6 +40,7 @@ namespace My_Buddy
         private void add(object sender, EventArgs e)
         {
             NavigationService.Navigate(new Uri("/Add.xaml", UriKind.Relative));
+            ll.DataContext = App.ViewModel.LastUsed;
         }
     }
 }

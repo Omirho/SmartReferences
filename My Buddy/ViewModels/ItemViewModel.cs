@@ -12,7 +12,11 @@ namespace My_Buddy.ViewModels
 {
     public class ItemViewModel
     {
-        public ItemViewModel() { }
+        public ItemViewModel()
+        {
+            isFavorite = false;
+            LastUsed = DateTime.Now;
+        }
 
         public ItemViewModel(string name, string des)
         {
