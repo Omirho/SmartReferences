@@ -37,7 +37,7 @@
             CurrentUICulture of the app at run time.
          -->
 
-         <!--Panorama control-->
+        <!--Panorama control-->
         <phone:Panorama Title="my buddy">
             <!--<phone:Panorama.Background>
                 <ImageBrush ImageSource="/PanoramaApp1;component/Assets/PanoramaBackground.png"/>
@@ -49,23 +49,47 @@
                 <Grid>
                     <StackPanel Margin="0,4,16,0" Orientation="Vertical" VerticalAlignment="Top">
                         <StackPanel HorizontalAlignment="Left" Orientation="Horizontal">
-                            <Grid Background="Aqua" Width="120" Margin="12,0,0,0">
+                            <Grid Background="LimeGreen" Width="120" Margin="12,0,0,0">
                                 <TextBlock TextAlignment="Center" Text="quadratic solver" FontSize="26" TextWrapping="Wrap" Height="120" Width="120"/>
                                 <Button Click="Button_Click_2" Height="120" Width="120" Style="{StaticResource ButtonStyle1}"/>
                             </Grid>
                             <!--<Border Background="#FFFFC700" Height="120" Width="120" Margin="12,0,0,0"/>-->
-                            <Border Background="#FFFFC700" Height="120" Width="252" Margin="12,0,0,0"/>
+                            <Grid Background="Red" Width="252" Margin="12,0,0,0">
+                                <TextBlock TextAlignment="Center" Text="linear system in two variables solver" FontSize="26" TextWrapping="Wrap" Height="120" Width="252"/>
+                                <Button Click="Button_Click_2" Height="120" Width="252" Style="{StaticResource ButtonStyle1}"/>
+                            </Grid>
+                            <!--<Border Background="#FFFFC700" Height="120" Width="252" Margin="12,0,0,0"/>-->
                         </StackPanel>
                         <StackPanel HorizontalAlignment="Left" Orientation="Horizontal" Margin="0,12,0,0">
-                            <Border Background="#FFFFC700" Height="252" Width="120" Margin="12,0,0,0"/>
+                            <Grid Background="DeepPink" Width="120" Margin="12,0,0,0">
+                                <TextBlock TextAlignment="Center" Text="quadratic solver" FontSize="26" TextWrapping="Wrap" Height="252" Width="120"/>
+                                <Button Click="Button_Click_2" Height="252" Width="120" Style="{StaticResource ButtonStyle1}"/>
+                            </Grid>
+                            <!--<Border Background="#FFFFC700" Height="252" Width="120" Margin="12,0,0,0"/>-->
                             <StackPanel HorizontalAlignment="Left" Orientation="Vertical" Margin="0,0,0,0">
                                 <StackPanel HorizontalAlignment="Left" Orientation="Horizontal" Margin="0,0,0,0">
-                                    <Border Background="#FFFFC700" Height="120" Width="120" Margin="12,0,0,0"/>
-                                    <Border Background="#FFFFC700" Height="120" Width="120" Margin="12,0,0,0"/>
+                                    <Grid Background="LightSeaGreen" Width="120" Margin="12,0,0,0">
+                                        <TextBlock TextAlignment="Center" Text="quadratic solver" FontSize="26" TextWrapping="Wrap" Height="120" Width="120"/>
+                                        <Button Click="Button_Click_2" Height="120" Width="120" Style="{StaticResource ButtonStyle1}"/>
+                                    </Grid>
+                                    <!--<Border Background="#FFFFC700" Height="120" Width="120" Margin="12,0,0,0"/>-->
+                                    <Grid Background="Purple" Width="120" Margin="12,0,0,0">
+                                        <TextBlock TextAlignment="Center" Text="quadratic solver" FontSize="26" TextWrapping="Wrap" Height="120" Width="120"/>
+                                        <Button Click="Button_Click_2" Height="120" Width="120" Style="{StaticResource ButtonStyle1}"/>
+                                    </Grid>
+                                    <!--<Border Background="#FFFFC700" Height="120" Width="120" Margin="12,0,0,0"/>-->
                                 </StackPanel>
                                 <StackPanel HorizontalAlignment="Left" Orientation="Horizontal" Margin="0,12,0,0">
-                                    <Border Background="#FFFFC700" Height="120" Width="120" Margin="12,0,0,0"/>
-                                    <Border Background="#FFFFC700" Height="120" Width="120" Margin="12,0,0,0"/>
+                                    <Grid Background="OrangeRed" Width="120" Margin="12,0,0,0">
+                                        <TextBlock TextAlignment="Center" Text="quadratic solver" FontSize="26" TextWrapping="Wrap" Height="120" Width="120"/>
+                                        <Button Click="Button_Click_2" Height="120" Width="120" Style="{StaticResource ButtonStyle1}"/>
+                                    </Grid>
+                                    <!--<Border Background="#FFFFC700" Height="120" Width="120" Margin="12,0,0,0"/>-->
+                                    <Grid Background="SaddleBrown" Width="120" Margin="12,0,0,0">
+                                        <TextBlock TextAlignment="Center" Text="quadratic solver" FontSize="26" TextWrapping="Wrap" Height="120" Width="120"/>
+                                        <Button Click="Button_Click_2" Height="120" Width="120" Style="{StaticResource ButtonStyle1}"/>
+                                    </Grid>
+                                    <!--<Border Background="#FFFFC700" Height="120" Width="120" Margin="12,0,0,0"/>-->
                                 </StackPanel>
                             </StackPanel>
                         </StackPanel>
@@ -76,7 +100,7 @@
             <!--Panorama item two-->
             <phone:PanoramaItem>
                 <!--Double line list with image placeholder and text wrapping using a floating header that scrolls with the content-->
-                <phone:LongListSelector Name="lls" SelectionChanged="LongListSelector_SelectionChanged" Margin="0,-38,-22,2" ItemsSource="{Binding LastUsed1}">
+                <phone:LongListSelector x:Name="lls" SelectionChanged="LongListSelector_SelectionChanged" Margin="0,-38,-22,2" ItemsSource="{Binding LastUsed1}">
                     <phone:LongListSelector.ListHeaderTemplate>
                         <DataTemplate>
                             <Grid Margin="12,0,0,38">
@@ -131,9 +155,9 @@
                     </phone:LongListSelector.ItemTemplate>
                 </phone:LongListSelector>
             </phone:PanoramaItem>
-            
+
         </phone:Panorama>
-        
+
         <!--Uncomment to see an alignment grid to help ensure your controls are
             aligned on common boundaries.  The image has a top margin of -32px to
             account for the System Tray. Set this to 0 (or remove the margin altogether)
