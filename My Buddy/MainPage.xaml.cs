@@ -41,10 +41,14 @@ namespace My_Buddy
             while (App.ViewModel.LastUsed1.Count > 7)
                 App.ViewModel.LastUsed1.RemoveAt(App.ViewModel.LastUsed1.Count - 1);
             App.ViewModel.LastUsed1.Insert(0, itm);
+            itm.LastUsed = DateTime.Now;
             if (itm.isImage == false)
             {
-                itm.LastUsed = DateTime.Now;
                 NavigationService.Navigate(new Uri(itm.Path, UriKind.Relative));
+            }
+            else
+            {
+                NavigationService.Navigate(new Uri("/Image.xaml?img=" + itm.Path, UriKind.Relative));
             }
         }
 
@@ -57,10 +61,14 @@ namespace My_Buddy
             while (App.ViewModel.LastUsed1.Count > 7)
                 App.ViewModel.LastUsed1.RemoveAt(App.ViewModel.LastUsed1.Count - 1);
             App.ViewModel.LastUsed1.Insert(0, itm);
+            itm.LastUsed = DateTime.Now;
             if (itm.isImage == false)
             {
-                itm.LastUsed = DateTime.Now;
                 NavigationService.Navigate(new Uri(itm.Path, UriKind.Relative));
+            }
+            else
+            {
+                NavigationService.Navigate(new Uri("/Image.xaml?img=" + itm.Path, UriKind.Relative));
             }
         }
 
@@ -73,10 +81,14 @@ namespace My_Buddy
             while (App.ViewModel.LastUsed1.Count > 7)
                 App.ViewModel.LastUsed1.RemoveAt(App.ViewModel.LastUsed1.Count - 1);
             App.ViewModel.LastUsed1.Insert(0, itm);
+            itm.LastUsed = DateTime.Now;
             if (itm.isImage == false)
             {
-                itm.LastUsed = DateTime.Now;
                 NavigationService.Navigate(new Uri(itm.Path, UriKind.Relative));
+            }
+            else
+            {
+                NavigationService.Navigate(new Uri("/Image.xaml?img=" + itm.Path, UriKind.Relative));
             }
         }
 
@@ -89,10 +101,14 @@ namespace My_Buddy
             while (App.ViewModel.LastUsed1.Count > 7)
                 App.ViewModel.LastUsed1.RemoveAt(App.ViewModel.LastUsed1.Count - 1);
             App.ViewModel.LastUsed1.Insert(0, itm);
+            itm.LastUsed = DateTime.Now;
             if (itm.isImage == false)
             {
-                itm.LastUsed = DateTime.Now;
                 NavigationService.Navigate(new Uri(itm.Path, UriKind.Relative));
+            }
+            else
+            {
+                NavigationService.Navigate(new Uri("/Image.xaml?img=" + itm.Path, UriKind.Relative));
             }
         }
 
@@ -105,10 +121,14 @@ namespace My_Buddy
             while (App.ViewModel.LastUsed1.Count > 7)
                 App.ViewModel.LastUsed1.RemoveAt(App.ViewModel.LastUsed1.Count - 1);
             App.ViewModel.LastUsed1.Insert(0, itm);
+            itm.LastUsed = DateTime.Now;
             if (itm.isImage == false)
             {
-                itm.LastUsed = DateTime.Now;
                 NavigationService.Navigate(new Uri(itm.Path, UriKind.Relative));
+            }
+            else
+            {
+                NavigationService.Navigate(new Uri("/Image.xaml?img=" + itm.Path, UriKind.Relative));
             }
         }
 
@@ -121,10 +141,14 @@ namespace My_Buddy
             while (App.ViewModel.LastUsed1.Count > 7)
                 App.ViewModel.LastUsed1.RemoveAt(App.ViewModel.LastUsed1.Count - 1);
             App.ViewModel.LastUsed1.Insert(0, itm);
+            itm.LastUsed = DateTime.Now;
             if (itm.isImage == false)
             {
-                itm.LastUsed = DateTime.Now;
                 NavigationService.Navigate(new Uri(itm.Path, UriKind.Relative));
+            }
+            else
+            {
+                NavigationService.Navigate(new Uri("/Image.xaml?img=" + itm.Path, UriKind.Relative));
             }
         }
 
@@ -137,10 +161,14 @@ namespace My_Buddy
             while (App.ViewModel.LastUsed1.Count > 7)
                 App.ViewModel.LastUsed1.RemoveAt(App.ViewModel.LastUsed1.Count - 1);
             App.ViewModel.LastUsed1.Insert(0, itm);
+            itm.LastUsed = DateTime.Now;
             if (itm.isImage == false)
             {
-                itm.LastUsed = DateTime.Now;
                 NavigationService.Navigate(new Uri(itm.Path, UriKind.Relative));
+            }
+            else
+            {
+                NavigationService.Navigate(new Uri("/Image.xaml?img=" + itm.Path, UriKind.Relative));
             }
         }
 
@@ -162,13 +190,45 @@ namespace My_Buddy
                 App.ViewModel.LastUsed1.RemoveAt(App.ViewModel.LastUsed1.Count - 1);
             //App.ViewModel.LastUsed1 = new ObservableCollection<ItemViewModel>(App.ViewModel.LastUsed1.OrderByDescending(i => i.LastUsed));
             App.ViewModel.LastUsed1.Insert(0, itm);
+            itm.LastUsed = DateTime.Now;
             if (itm.isImage == false)
             {
-                itm.LastUsed = DateTime.Now;
                 NavigationService.Navigate(new Uri(itm.Path, UriKind.Relative));
+            }
+            else
+            { 
+                NavigationService.Navigate(new Uri("/Image.xaml?img="+itm.Path, UriKind.Relative));
             }
             lls.SelectedItem = null;
         }
 
+        private void ApplicationBarIconButton_Click(object sender, EventArgs e)
+        {
+            NavigationService.Navigate(new Uri("/Search.xaml", UriKind.Relative));
+        }
+
+        private void lls1_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            if (lls1.SelectedItem == null)
+                return;
+            //MessageBox.Show("Done");
+            var itm = (lls1.SelectedItem as ItemViewModel);
+            itm.setused();
+            if (App.ViewModel.LastUsed1.Contains(itm))
+                App.ViewModel.LastUsed1.Remove(itm);
+            while (App.ViewModel.LastUsed1.Count > 7)
+                App.ViewModel.LastUsed1.RemoveAt(App.ViewModel.LastUsed1.Count - 1);
+            //App.ViewModel.LastUsed1 = new ObservableCollection<ItemViewModel>(App.ViewModel.LastUsed1.OrderByDescending(i => i.LastUsed));
+            App.ViewModel.LastUsed1.Insert(0, itm);
+            if (itm.isImage == false)
+            {
+                NavigationService.Navigate(new Uri(itm.Path, UriKind.Relative));
+            }
+            else
+            {
+                NavigationService.Navigate(new Uri("/Image.xaml?msg=" + itm.Path, UriKind.Relative));
+            }
+            lls1.SelectedItem = null;
+        }
     }
 }

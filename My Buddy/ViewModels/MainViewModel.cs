@@ -33,13 +33,18 @@ namespace My_Buddy.ViewModels
             }
             else
             {
-                Items.Add(new ItemViewModel("Chris Sells", "Chris Sells Live"));
-                System.Threading.Thread.Sleep(1000);
-                Items.Add(new ItemViewModel("Luka Abrus", "The Road to Redmond"));
-                System.Threading.Thread.Sleep(1000);
-                Items.Add(new ItemViewModel() { Path = "/QuadraticEquationSolver.xaml", Name = "Quadratic Equation Solver", Description = "Solves equation", isImage = false });
-                System.Threading.Thread.Sleep(1000);
-                Items.Add(new ItemViewModel("Jim Hance", "The Best of Jim Hance"));
+                //Items.Add(new ItemViewModel("Chris Sells", "Chris Sells Live"));
+                //Items.Add(new ItemViewModel("Luka Abrus", "The Road to Redmond"));
+                Items.Add(new ItemViewModel() { Path = "/QuadraticEquationSolver.xaml", Name = "Quadratic Solver", Description = "gives roots of a quadratic equation", isImage = false });
+                Items.Add(new ItemViewModel() { Path = "/BaseConverter.xaml", Name = "Base Converter", Description = "converstion made easier", isImage = false });
+                Items.Add(new ItemViewModel() { Path = "/LinearSystemInTwoVariablesSolver.xaml", Name = "2 Variable Solver", Description = "solves a linear system in two variables", isImage = false });
+                Items.Add(new ItemViewModel() { Path = "/LinearSystemInThreeVariablesSolver.xaml", Name = "3 Variable Solver", Description = "solves a linear system in three variables", isImage = false });
+                Items.Add(new ItemViewModel() { Path = "/Assets/img/aufbau_principle.jpg", Name = "Aufbau Principle", Description = "energy order of degenerate shells", isImage = true });
+                Items.Add(new ItemViewModel() { Path = "/Assets/img/periodic_table.png", Name = "Periodic Table", Description = "periodic table with you, always", isImage = true });
+                Items.Add(new ItemViewModel() { Path = "/Assets/img/physical_constants.jpg", Name = "Physical Constants", Description = "collection of universal constants", isImage = true });
+                Items.Add(new ItemViewModel() { Path = "/Assets/img/physics_formulae.jpg", Name = "Physics Formulae", Description = "some formulae for you", isImage = true });
+                //Items.Add(new ItemViewModel() { Path = "/Assets/img/polyatomic_ions_list.gif", Name = "Polyatomic Ions List", Description = "you never know when you might need it", isImage = true });
+                Items.Add(new ItemViewModel() { Path = "/Assets/img/valence_electrons_chart.jpg", Name = "Valence Electrons Chart", Description = "a very useful reference", isImage = true });
                 
                 //Items = new ObservableCollection<ItemViewModel>(Items.OrderByDescending(i => i.LastUsed));
                 appSettings["All"] = Items;

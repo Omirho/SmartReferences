@@ -73,20 +73,20 @@
                                         <Button Click="Button_Click_4" Height="120" Width="120" Style="{StaticResource ButtonStyle1}"/>
                                     </Grid>
                                     <!--<Border Background="#FFFFC700" Height="120" Width="120" Margin="12,0,0,0"/>-->
-                                    <Grid Background="Purple" Width="120" Margin="12,0,0,0">
-                                        <TextBlock Name="TB5" TextAlignment="Center" Text="" FontSize="26" TextWrapping="Wrap" Height="120" Width="120"/>
+                                    <Grid Background="Purple" Width="120" Margin="12,0,0,0" DataContext="{Binding LastUsed1[4]}">
+                                        <TextBlock Name="TB5" TextAlignment="Center" Text="{Binding Name}" FontSize="26" TextWrapping="Wrap" Height="120" Width="120"/>
                                         <Button Click="Button_Click_5" Height="120" Width="120" Style="{StaticResource ButtonStyle1}"/>
                                     </Grid>
                                     <!--<Border Background="#FFFFC700" Height="120" Width="120" Margin="12,0,0,0"/>-->
                                 </StackPanel>
                                 <StackPanel HorizontalAlignment="Left" Orientation="Horizontal" Margin="0,12,0,0">
-                                    <Grid Background="OrangeRed" Width="120" Margin="12,0,0,0">
-                                        <TextBlock Name="TB6" TextAlignment="Center" Text="" FontSize="26" TextWrapping="Wrap" Height="120" Width="120"/>
+                                    <Grid Background="OrangeRed" Width="120" Margin="12,0,0,0" DataContext="{Binding LastUsed1[5]}">
+                                        <TextBlock Name="TB6" TextAlignment="Center" Text="{Binding Name}" FontSize="26" TextWrapping="Wrap" Height="120" Width="120"/>
                                         <Button Click="Button_Click_6" Height="120" Width="120" Style="{StaticResource ButtonStyle1}"/>
                                     </Grid>
                                     <!--<Border Background="#FFFFC700" Height="120" Width="120" Margin="12,0,0,0"/>-->
-                                    <Grid Background="SaddleBrown" Width="120" Margin="12,0,0,0">
-                                        <TextBlock Name="TB7" TextAlignment="Center" Text="" FontSize="26" TextWrapping="Wrap" Height="120" Width="120"/>
+                                    <Grid Background="SaddleBrown" Width="120" Margin="12,0,0,0" DataContext="{Binding LastUsed1[6]}">
+                                        <TextBlock Name="TB7" TextAlignment="Center" Text="{Binding Name}" FontSize="26" TextWrapping="Wrap" Height="120" Width="120"/>
                                         <Button Click="Button_Click_7" Height="120" Width="120" Style="{StaticResource ButtonStyle1}"/>
                                     </Grid>
                                     <!--<Border Background="#FFFFC700" Height="120" Width="120" Margin="12,0,0,0"/>-->
@@ -132,7 +132,7 @@
             <!--Panorama item one-->
             <phone:PanoramaItem Header="collection">
                 <!--Single line list with text wrapping-->
-                <phone:LongListSelector Margin="0,0,-22,0" ItemsSource="{Binding Items}">
+                <phone:LongListSelector Name="lls1" SelectionChanged="lls1_SelectionChanged" Margin="0,0,-22,0" ItemsSource="{Binding Items}">
                     <phone:LongListSelector.ItemTemplate>
                         <DataTemplate>
                             <StackPanel Margin="0,-6,0,12">
@@ -145,15 +145,13 @@
 
             <phone:PanoramaItem Header="about">
                 <!--Single line list with text wrapping-->
-                <phone:LongListSelector Margin="0,0,-22,0" ItemsSource="{Binding Items}">
-                    <phone:LongListSelector.ItemTemplate>
-                        <DataTemplate>
-                            <StackPanel Margin="0,-6,0,12">
-                                <!--<TextBlock Text="{Binding LineOne}" TextWrapping="Wrap" Style="{StaticResource PhoneTextExtraLargeStyle}" FontSize="{StaticResource PhoneFontSizeExtraLarge}"/>-->
-                            </StackPanel>
-                        </DataTemplate>
-                    </phone:LongListSelector.ItemTemplate>
-                </phone:LongListSelector>
+                <StackPanel>
+                    <TextBlock TextAlignment="Center" Text="My Buddy beta" Style="{StaticResource PhoneTextExtraLargeStyle}" FontSize="{StaticResource PhoneFontSizeExtraLarge}"></TextBlock>
+                    <TextBlock Text="Developed by:" Style="{StaticResource PhoneTextExtraLargeStyle}" FontSize="{StaticResource PhoneFontSizeExtraLarge}"></TextBlock>
+                    <TextBlock TextAlignment="Center" Text="Team UniRank" Style="{StaticResource PhoneTextExtraLargeStyle}" FontSize="{StaticResource PhoneFontSizeExtraLarge}"/>
+                    <TextBlock Text="for Microsoft Appfest" Style="{StaticResource PhoneTextExtraLargeStyle}" FontSize="{StaticResource PhoneFontSizeExtraLarge}"/>
+                    <TextBlock TextAlignment="Center" Text="at IIT Guwahati" Style="{StaticResource PhoneTextExtraLargeStyle}" FontSize="{StaticResource PhoneFontSizeExtraLarge}"/>
+                </StackPanel>
             </phone:PanoramaItem>
 
         </phone:Panorama>
@@ -170,6 +168,7 @@
     <phone:PhoneApplicationPage.ApplicationBar>
         <shell:ApplicationBar IsVisible="True" IsMenuEnabled="False">
             <shell:ApplicationBarIconButton Click="add" Text="add" IconUri="/Toolkit.Content/ApplicationBar.Add.png"/>
+            <shell:ApplicationBarIconButton Click="ApplicationBarIconButton_Click" Text="search" IconUri="/Toolkit.Content/ApplicationBar.Search.png"/>
         </shell:ApplicationBar>
     </phone:PhoneApplicationPage.ApplicationBar>
 </phone:PhoneApplicationPage>
